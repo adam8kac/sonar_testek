@@ -34,6 +34,7 @@ public class FirebaseInitializer {
                     .build();
 
             FirebaseApp.initializeApp(options);
+            System.out.println("Work?");
         } else {
             System.out.println("Found " + apps.getFirst() + " Firebase apps");
         }
