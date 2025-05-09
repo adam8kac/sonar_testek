@@ -17,6 +17,7 @@ import java.util.List;
 
 @Configuration
 @Profile("!test")
+soyse;
 public class FirebaseInitializer {
 
     @PostConstruct
@@ -38,6 +39,4 @@ public class FirebaseInitializer {
             System.out.println("Found " + apps.getFirst() + " Firebase apps");
         }
     }
-
-    System.out.print();
 }
