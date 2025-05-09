@@ -30,13 +30,12 @@ public class FirebaseInitializer {
                 throw new IllegalStateException("Firebase serviceAccountKey.json not found in classpath.");
             }
             FirebaseOptions options = FirebaseOptions.builder()
-            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-            .build();
-            
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
+
             FirebaseApp.initializeApp(options);
         } else {
             System.out.println("Found " + apps.getFirst() + " Firebase apps");
         }
     }
-    System.out.println();
 }
