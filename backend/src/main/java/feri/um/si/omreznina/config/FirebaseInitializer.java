@@ -17,7 +17,6 @@ import java.util.List;
 
 @Configuration
 @Profile("!test")
-dsadsadasd
 public class FirebaseInitializer {
 
     @PostConstruct
