@@ -13,10 +13,10 @@ import java.io.InputStream;
 import java.util.List;
 
 @Configuration
+@Profile("!test")
 public class FirebaseInitializer {
 
     @PostConstruct
-    @Profile("!test")
     public void initfirebase() throws IOException {
         List<FirebaseApp> apps = FirebaseApp.getApps();
 
