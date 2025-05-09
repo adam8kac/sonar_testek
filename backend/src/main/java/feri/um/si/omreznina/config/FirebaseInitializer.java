@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Profile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Configuration
@@ -20,11 +21,14 @@ public class FirebaseInitializer {
         List<FirebaseApp> apps = FirebaseApp.getApps();
 
         if (apps == null || apps.isEmpty()) {
-            FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/serviceAccountKey.json");
+            InputStream serviceAccount = getClass().getClassLoader().getResourceAsStream("serviceAccountKey.json");
+
+            if (serviceAccount == null) {
+                throw new IllegalStateException("Firebase serviceAccountKey.json not found in classpath.");
+            }
 
             FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();
 
             FirebaseApp.initializeApp(options);
