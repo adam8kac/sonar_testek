@@ -38,4 +38,6 @@ public class FirebaseInitializer {
             System.out.println("Found " + apps.getFirst() + " Firebase apps");
         }
     }
+
+    System.out.print();
 }
