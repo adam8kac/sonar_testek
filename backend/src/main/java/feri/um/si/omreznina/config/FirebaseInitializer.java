@@ -9,23 +9,22 @@ import org.springframework.context.annotation.Profile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @Configuration
-@Profile("!test")
 public class FirebaseInitializer {
 
     @PostConstruct
+    @Profile("!test")
     public void initfirebase() throws IOException {
         List<FirebaseApp> apps = FirebaseApp.getApps();
 
         if (apps == null || apps.isEmpty()) {
-            InputStream serviceAccount =
-            getClass().getClassLoader().getResourceAsStream("serviceAccountKey.json");
+            FileInputStream serviceAccount =
+                    new FileInputStream("src/main/resources/serviceAccountKey.json");
 
             FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();
 
             FirebaseApp.initializeApp(options);
