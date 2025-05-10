@@ -40,7 +40,7 @@ public class FirebaseInitializer {
 
             FirebaseApp.initializeApp(options);
         } else {
-            System.out.println("Found23 " + apps.getFirst() + " Firebase apps");
+            System.out.println("Found" + apps.getFirst() + " Firebase apps");
         }
     }
 }
