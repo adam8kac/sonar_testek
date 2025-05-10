@@ -19,6 +19,11 @@ import java.util.List;
 @Profile("!test")
 public class FirebaseInitializer {
 
+    @Bean
+    public Firestore firestore() {
+        return com.google.firebase.cloud.FirestoreClient.getFirestore();
+    }
+
     @PostConstruct
     public void initfirebase() throws IOException {
         List<FirebaseApp> apps = FirebaseApp.getApps();
@@ -35,7 +40,7 @@ public class FirebaseInitializer {
 
             FirebaseApp.initializeApp(options);
         } else {
-            System.out.println("Found2 " + apps.getFirst() + " Firebase apps");
+            System.out.println("Found23 " + apps.getFirst() + " Firebase apps");
         }
     }
 }
