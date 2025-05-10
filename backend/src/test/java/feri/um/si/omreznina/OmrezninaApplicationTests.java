@@ -20,6 +20,7 @@ class OmrezninaApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("TEST");
 	}
 
 }
