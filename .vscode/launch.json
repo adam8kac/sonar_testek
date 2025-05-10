@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-OmrezninaApplication<omreznina>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "feri.um.si.omreznina.OmrezninaApplication",
+      "projectName": "omreznina",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
